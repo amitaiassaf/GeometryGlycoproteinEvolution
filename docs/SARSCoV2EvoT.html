@@ -42,7 +42,7 @@
 	<center><h1>Spike evolution of SARS-CoV-2</h1></center>
 	<link rel="stylesheet" href="styles.css">
 
-	<div class="ExT1"> Viral infection elicits antibodies target residues on the surface of glycoproteins (spikes). Because of the high-density presentation of spikes on the viral surface, not all antigenic sites are targeted equally by antibodies. We used molecular dynamics simulations to antibody pressure/antibodies targeting of surface residues of the SARS-CoV-2 spike.</div>
+	<div class="ExT1"> Viral infection elicits antibodies target residues on the surface of glycoproteins (spikes). Because of the high-density presentation of spikes on the viral surface, not all antigenic sites are targeted equally by antibodies. We used molecular dynamics simulations to estimate antibody pressure/antibodies targeting of surface residues of the SARS-CoV-2 spike.</div>
 	<!-- <br>
 	<br> -->
 
@@ -100,13 +100,14 @@
 
 
 
-	<div class="ExT1"> To compare the affinity map and the mutability map we applied spectral clustering. We aggregate closeby residues to epitope clusters. How well the model does in explaining the mutability of the surface residue? </div>
+	<div class="ExT1"> To compare the affinity map and the mutability map we applied spectral clustering. We aggregated closeby residues to define epitope clusters.</div>
 
+    <div class="ExT1"> How good is the model in explaining the mutability of the surface residue? </div>
 
 	<div class="ExT1" style="width:50%" id='scatFam'> </div>
 	<div class="ExT2" id='corFam'> </div>
 	
-	<div class="ExT1"> The correlation between the affinity map and the mutability map is 0.69 for the sarbecovirus subgenus spike. To create the affinity map we use only the surface geometry of the virus and the spike. Hence, the virus surface geometry gives rise to antibody pressure, as estimated by the model, that can explain 48% of the variability in the mutability map of the sarbecovirus subgenus spike. </div>
+	<div class="ExT1"> The correlation between the affinity map and the mutability map is 0.69 for the sarbecovirus subgenus spike. To create the affinity map we use only the surface geometry of the virus and the spike. Hence, the virus surface geometry gives rise to antibody pressure, as estimated by the model, that can explain 48% of the variability in the mutability map. </div>
 
 	<hr>
 	
@@ -114,7 +115,7 @@
 
 	<center><h1> Does SARS-CoV-2 spike mutability follow the viral surface geometry and antibody pressure?</h1></center>
 
-	<div class="ExT1"> We compared the mutability of the SARS-CoV-2 spike to the affinity map above. Because over time the mutational patterns of the spike evolution can change, we explore its mutability map at different time periods (data from <a href="https://www.gisaid.org/">gisaid</a>). Choose below the initial time-point and the end time-point over which you want to compare the mutability map to the model.   </div>
+	<div class="ExT1"> We compared the mutability of the SARS-CoV-2 spike to the affinity map above. The spike acquires different mutations that can affect its infectivity or help it escape from antibodies. Over time its evolutionary tendencies may change. We explore its mutability map at different time periods (data from <a href="https://www.gisaid.org/">gisaid</a>). Choose time window to pick mutations acquired in this period </div>
 
 		<div class="row">
 			<div class="col-md-1"></div><div class="col-md-1"></div>
@@ -129,8 +130,13 @@
 				<button id='gobuttonEnd'> End point </button>
 
 			</div>
-		</div>
-	
+        </div>
+
+        <div class="ExT1"> Comparing the mutability map at this time window to the antibody pressure model </div>
+        
+
+
+     
 	<div class="row">
 		
 		<div class="col-lg-5 col-lg-offset-1">
@@ -236,7 +242,17 @@
 				var dataScat = [cluster, RBD, RBM];
               				
 				//layout = dict(updatemenus=updatemenus, title='Linear scale')
-                layout1 = SetLayoutScat('Antibody pressure vs. mutability for SARS-CoV-2 spike (S protein)','Antibody pressure on residues','Residues mutability')
+                var TitleStrScat = '';
+
+                if(targetScat=='scatFam'){
+                    TitleStrScat = 'Antibody pressure vs. mutability for sarbecovirus subgenus spike';
+
+                } else {
+                    TitleStrScat = 'Antibody pressure vs. mutability for SARS-CoV-2 spike';
+
+                }
+
+                layout1 = SetLayoutScat(TitleStrScat,'Antibody pressure on residues','Residues mutability')
 				
 				Fig1 = Plotly.newPlot(targetScat, dataScat,layout1);
 				//Plotly.newPlot('scat', dataScat);
