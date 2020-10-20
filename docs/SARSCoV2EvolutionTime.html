@@ -38,21 +38,21 @@
 	</script>
 </head>
 
-<body>
+<body >
 	<center><h1>Spike evolution of SARS-CoV-2</h1></center>
-	<link rel="stylesheet" href="/styles.css"> 
+	<link rel="stylesheet" href="styles.css">
 
 	<div class="ExT1"> Viral infection elicits a humoral response and the production of antibodies with near-limitless diversity, which target residues on the surface of glycoproteins (spikes). Because of the high-density presentation of spikes on the viral surface, not all antigenic sites are targeted equally by antibodies. We used molecular dynamics simulation to estimate the ability of antibodies to target different surface residues of the SARS-CoV-2 spike.</div>
-	<br>
-		<br>
+	<!-- <br>
+	<br> -->
 
 
 
 		<div class="row">
 			<div class="col-lg-6">
-				<figure>
+				<figure class="ExT1">
 					<img src="antibodyaffinityMeasure.png" alt="Trulli" style="width:80%">
-					 <figcaption class="ExT1" style="width:100%"> <b>Affinity map: antibody affinity (on-rate of the antiboy) or antibody pressure estimated from the simulation is superimposed on the spike structure. </b> 
+					 <figcaption class="ExT1" style="width:80%"> <b>Affinity map: antibody affinity (on-rate of the antiboy) or antibody pressure estimated from the simulation is superimposed on the spike structure. </b> 
 						<!-- (Right) The antibody affinity (on-rate of Ab first arm binding) to the surface residues. The affinity estimated from the simulation is superimposed on the HA structure. Top view (left), side view (right). The affinity to cyan sites is high, intermediate to white sites, low for purple sites, and was the average over multiple simulations.  -->
 					</figcaption>
 				</figure>
@@ -60,25 +60,24 @@
 				
 			</div>
 			<div class="col-lg-6">
-				<figure>
+				<figure class="ExT1">
 					<img src="CoronaVirusModel_1.png" alt="Trulli" style="width:45%">
-					 <figcaption class="ExT1" style="width:60%"> <b>Antibody targeting of the spike (S protein) of SARS-CoV-2</b> 
+					 <figcaption style="width:45%"> <b>Antibody targeting of the spike (S protein) of SARS-CoV-2</b> 
 						  <!-- mutability of the sarbecovirus subgenus spike.</b> (Left) SARS-CoV-2 spike (S) protein in its closed form (Walls et al., 2020) arranged on a sphere to create a virus model. The virus model has 65 S molecules at a density of 0.27 spikes per 100nm2 (Beniac et al., 2006). A detailed atomistic structure of the spike is coarse-grained and presented in rainbow colors (panel i). Every colored bead on the spike is a residue, representing a different S epitope (254 different possible sites on trimeric S). The antibody structure is presented as the Fc (blue bead), and two antigen binding sites (magenta beads). -->
 						</figcaption>
 				</figure>
 			</div>
 		</div>
 
-		<br>
 
-		<div class="ExT1"> For circulating viruses to propagate, they have to evade neutralization and recognition by antibodies and do so, by accumulating mutations at their spikes. We checked for the sarbecovirus subgenus spike (SARS family) if the mutational pattern matches the antibody pressure/affinity estimated by the model.</div>
+		<div class="ExT1"> For circulating viruses to propagate, they have to evade neutralization and recognition by antibodies and do so, by accumulating mutations at their spikes. We checked for the sarbecovirus subgenus spike (SARS family) whether the mutational pattern matches the antibody pressure/affinity estimated by the model.</div>
 		
 
 	<div class="row">
 		<div class="col-lg-6">
-			<figure>
+			<figure class="ExT1">
 				<img src="SarbecovirusSubgenus_mut.png" alt="Trulli" style="width:80%">
-				 <figcaption class="ExT1" style="width:100%"> <b>Mutability map: entropy of the sarbecovirus subgenus residues superimposed on the spike structure. </b> 
+				 <figcaption class="ExT1" style="width:80%"> <b>Mutability map: entropy of the sarbecovirus subgenus residues superimposed on the spike structure. </b> 
 					<!-- (Right) The antibody affinity (on-rate of Ab first arm binding) to the surface residues. The affinity estimated from the simulation is superimposed on the HA structure. Top view (left), side view (right). The affinity to cyan sites is high, intermediate to white sites, low for purple sites, and was the average over multiple simulations.  -->
 				</figcaption>
 			</figure>
@@ -86,21 +85,28 @@
 			
 		</div>
 		<div class="col-lg-6">
-			<figure>
+
+
+			<div class="ExT1" style="width:70%" id='HistFam'> </div>
+
+			<!-- <figure class="ExT1">
 				<img src="EntropySARSFam.png" alt="Trulli" style="width:40%">
-				 <figcaption class="ExT1" style="width:50%"> <b>Sequence entropy of each residue computed for the sarbecovirus subgenus spike. </b> 
+				 <figcaption style="width:50%"> <b>Sequence entropy of each residue computed for the sarbecovirus subgenus spike. </b> 
 					<!-- (Right) The antibody affinity (on-rate of Ab first arm binding) to the surface residues. The affinity estimated from the simulation is superimposed on the HA structure. Top view (left), side view (right). The affinity to cyan sites is high, intermediate to white sites, low for purple sites, and was the average over multiple simulations.  -->
 				</figcaption>
-			</figure>
+			</figure> 
 		</div>
 	</div>
 
-	<br>
+
 
 	<div class="ExT1"> To compare the affinity map and the mutability map we applied spectral clustering. We aggregate residues to epitope clusters. The scatter plot shows how well the model does in explaining the mutability of the surface residue. </div>
-	
 
-	<div class="ExT1"> The correlation between the affinity map and the mutability map is 0.69 for the sarbecovirus subgenus spike. The simulation uses to estimate antibody pressure on a residue, only the surface geometry of the virus and the spike to compute the affinity map. Hence, the virus surface geometry gives rise to antibody pressure, as estimated by the model, that can explain 48% of the variability in the mutability map of the spike. </div>
+
+	<div class="ExT1" style="width:30%" id='scatFam'> </div>
+	<div class="ExT2" id='corFam'> </div>
+	
+	<div class="ExT1"> The correlation between the affinity map and the mutability map is 0.69 for the sarbecovirus subgenus spike. To create the affinity map and estimate antibody pressure on a residue, we use only the surface geometry of the virus and the spike. Hence, the virus surface geometry gives rise to antibody pressure, as estimated by the model, that can explain 48% of the variability in the mutability map of the sarbecovirus subgenus spike. </div>
 
 	<hr>
 	
@@ -110,15 +116,12 @@
 	
 
 	<div class="ExT1"> We compared the mutability of the SARS-CoV-2 spike to the affinity map. Because over time the mutational patterns of the spike evolution can change, we explore its mutability map at different time periods. Choose below the initial time-point and the end time-point over which you want to compare the mutability map to the model. A high correlation value means that the mutability pattern of the spike follows antibody pressure as estimated by the model and could be indicative of escape from antibody mutations, amongst other factors (see manuscript).  </div>
-	
 
-	<!-- <div class="ExT1"><b>Histogram:</b> The histogram depicts the sequence entropy (see eq.(1) in the manuscript) of each spike residue computed for the SARS-CoV-2 spike. Sequences collect in the time period that was selected. (Sequences taken from www.gisaid.org). <br>
-		<b>Scatter plot:</b> Scatter plot of the epitope clusters entropy of sequences collected at the selected time period, versus.the epitope cluster affinity estimated from the simulations. The correlation coefficient between them is shown above the plot. Clusters that contain residues belonging to the Receptor-Binding-Domain (RBD) are in green and those containing residues belonging to the Receptor-Binding-Motif (RBM) are in red. (The number of clusters is 60).</div> -->
 	
 		<div class="row">
 			<div class="col-md-1">
 				<input type="text" class="form-control" id="datepicker">
-				<button id='gobutton'> Initial point </button>
+				<button id='gobutton' > Initial point </button>
 
 			</div>
 			<div class="col-md-1">
@@ -129,20 +132,18 @@
 			</div>
 		</div>
 	
-	
-	<!-- <div id='hist'> </div>    <div class="col-md-6" id='hist'> </div>
-	<div id='scat'> </div> -->
 	<div class="row">
 		<div class="col-lg-6">
-			<div id='hist'> </div>
+			<div style="width:70%" id='hist'> </div>
 		</div>
 		<div class="col-lg-6">
-			<div id='scat'> </div>
+			<div style="width:70%" id='scat'> </div>
 		</div>
 	</div>
 	
-	<div class="ExT1" id='cor'> </div>
-	  
+	<div class="ExT2" id='cor'> </div>
+
+	
 
 	<script>
 		var datePickerElement = $("#datepicker").datepicker({
@@ -150,16 +151,16 @@
 			viewMode: "months",
 			minViewMode: "months",
 			startDate: new Date(2019, 11, 1),
-			endDate: new Date(2020, 11, 1)
+			endDate: new Date(2020, 09, 1)
 		});
 		var datePickerElementEnd = $("#datepickerEnd").datepicker({
 			format: "mm-yyyy",
 			viewMode: "months",
 			minViewMode: "months",
 			startDate: new Date(2019, 11, 1),
-			endDate: new Date(2020, 11, 1)
+			endDate: new Date(2020, 09, 1)
 		});
-		function histogram(data) {
+		function histogram(data,targetHist) {
 			if (data) {
 				var yValues = [];
 				var xValues = [];
@@ -184,10 +185,10 @@
                   showline: true
                 }
               	};
-				Plotly.newPlot('hist', [dataBar],layout);
+				Plotly.newPlot(targetHist, [dataBar],layout);
 			}
 		}
-		function scatter(data) {
+		function scatter(data,targetScat) {
 			if (data) {
 				var cluster = {
 					x: [],
@@ -250,28 +251,11 @@
 				  type: 'log',
                 }
               	};
-				
-	// 			  updatemenus = list([
-    // dict(active=1,
-    //      buttons=list([
-    //         dict(label='Log Scale',
-    //              method='update',
-    //              args=[{'visible': [True, True]},
-    //                    {'title': 'Log scale',
-    //                     'yaxis': {'type': 'log'}}]),
-    //         dict(label='Linear Scale',
-    //              method='update',
-    //              args=[{'visible': [True, False]},
-    //                    {'title': 'Linear scale',
-    //                     'yaxis': {'type': 'linear'}}])
-    //         ]),
-    //     )
-    // ])
-
 				//layout = dict(updatemenus=updatemenus, title='Linear scale')
 
-
-				Fig1 = Plotly.newPlot('scat', dataScat,layout);
+				//Fig1 = Plotly.newPlot('scat', dataScat,layout);
+				//T = '${targetScat}';
+				Fig1 = Plotly.newPlot(targetScat, dataScat,layout);
 				//Plotly.newPlot('scat', dataScat);
 				
 			}
@@ -279,6 +263,11 @@
 		function setCorrelationLabel(data) {
 			if (data) {
 				$('#cor').text(`Correlation coefficient: ${data}`);
+			}
+		}
+		function setCorrelationLabelFam(data) {
+			if (data) {
+				$('#corFam').text(`Correlation coefficient: ${data}`);
 			}
 		}
 		function getRefId(dateStr) {
@@ -300,12 +289,44 @@
 
 				var Endmonth = dateStrEnd.split('-')[0];
 				var Endyear = dateStrEnd.split('-')[1].slice(-2);
-				var isJanuary = Endmonth == '01' ? true : false;
+				//var isJanuary = Endmonth == '01' ? true : false;
+				
+				var isDecember = Endmonth == '12' ? true : false;
+				
+				//var is2019 = Endyear == '2019' ? true : false;
+
+
+				//var Endmonth1 = isDecember ? Endmonth : Endmonth + 1;
+				//var prevMonth = isJanuary ? '12' : month - 1;
+				Endyear = '20';
+				//var NextMonth = isJanuary ? '12' : Endmonth + 1;
+				//var NextMonth = Endmonth;
+				//var NextMonth = isJanuary ? '12' : Endmonth - 1;
+				//var NextMonth = isJanuary ? '12' : Endmonth - 1;
+				//if (NextMonth.toString().length == 1) { NextMonth = `0${NextMonth}` }
+
+				//var NextMonth = isJanuary ? '12' : Endmonth;
+				//Var NextMonthNum = Number(NextMonth);
+
+				//var a = (NextMonth)+1;
+				//var b = (a);
+				//NextMonth = b;
+
+				//var a = Number(NextMonth)+1;
+				//var b = String(a);
+				//NextMonth = b;
+
+				//if (NextMonth.toString().length == 1) { NextMonth = `0${NextMonth}` }
+				//Endmonth = Endmonth + 1;
+				//if (Endmonth.toString().length == 1) { Endmonth = `0${Endmonth}` }
+
+				//Endyear = is2019 ? '2020' : Endmonth + 1;
 
 				//var prevMonth = isJanuary ? '12' : month - 1;
 				//if (prevMonth.toString().length == 1) { prevMonth = `0${prevMonth}` }
 				//var prevYear = isJanuary ? year - 1 : year;
 				//return `D${prevYear}${prevMonth}01${year}${month}01`;
+				//return `D${Styear}${Stmonth}01${Endyear}${Endmonth}01`;
 				return `D${Styear}${Stmonth}01${Endyear}${Endmonth}01`;
 			}
 		}
@@ -314,24 +335,54 @@
 				var data = snapshot.val();
 				console.log(data);
 				if (data) {
-					histogram(data.hist);
-					scatter(data.scatter);
+					var targetHist = 'hist';
+					histogram(data.hist,targetHist);
+					var targetScat = 'scat';
+					scatter(data.scatter,targetScat);
+					var targetCor = 'cor';
 					setCorrelationLabel(data.CC);
 				}
 			});
 		}
+		function paintFamWithRefId(refId) {
+			firebase.database().ref(refId).once('value').then(function (snapshot) {
+				var data = snapshot.val();
+				console.log(data);
+				if (data) {
+					var targetScat = 'scatFam';
+					var targetHist = 'HistFam';
+					histogram(data.hist,targetHist);
+					scatter(data.scatter,targetScat);
+					setCorrelationLabelFam(data.CC);
+				}
+			});
+		}
+
 		// on page load
-		datePickerElement.val('08-2020'); // show Oct 2020 by default
-		datePickerElementEnd.val('09-2020'); // show Oct 2020 by default
+
+// Load family entropy and scatter
+
+		datePickerElement.val('01-2002'); // show Dec 2019 by default
+		datePickerElementEnd.val('01-2019');
+		//D020101190101
+		//var refSARSFam = getRefIdStartEnd(datePickerElement.val(),datePickerElementEnd.val());
+		var refSARSFam = 'D020101190101';
+		
+		 paintFamWithRefId(refSARSFam);
+
+		datePickerElement.val('04-2020'); // show Oct 2020 by default
+		datePickerElementEnd.val('07-2020'); // 
 		//var refId = getRefId(datePickerElement.val());
 		//var refIdStart = getRefId(datePickerElement.val());
 		var refIdEnd = getRefIdStartEnd(datePickerElement.val(),datePickerElementEnd.val());
 
 		//paintWithRefId(refId);
 		paintWithRefId(refIdEnd);
+		
 
 		$('#gobutton').click(function () {
-			var refId = getRefId(datePickerElement.val());
+			//var refId = getRefId(datePickerElement.val());
+			var refId = getRefIdStartEnd(datePickerElement.val(),datePickerElementEnd.val());
 			if (refId) {
 				paintWithRefId(refId);
 			} else {
