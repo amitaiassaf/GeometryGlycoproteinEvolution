@@ -42,7 +42,7 @@
 	<center><h1>Spike evolution of SARS-CoV-2</h1></center>
 	<link rel="stylesheet" href="styles.css">
 
-	<div class="ExT1"> Viral infection elicits a humoral response and the production of antibodies with near-limitless diversity, which target residues on the surface of glycoproteins (spikes). Because of the high-density presentation of spikes on the viral surface, not all antigenic sites are targeted equally by antibodies. We used molecular dynamics simulation to estimate the ability of antibodies to target different surface residues of the SARS-CoV-2 spike.</div>
+	<div class="ExT1"> Viral infection elicits antibodies target residues on the surface of glycoproteins (spikes). Because of the high-density presentation of spikes on the viral surface, not all antigenic sites are targeted equally by antibodies. We used molecular dynamics simulations to antibody pressure/antibodies targeting of surface residues of the SARS-CoV-2 spike.</div>
 	<!-- <br>
 	<br> -->
 
@@ -52,7 +52,7 @@
 			<div class="col-lg-6">
 				<figure class="ExT1">
 					<img src="antibodyaffinityMeasure.png" alt="Trulli" style="width:80%">
-					 <figcaption class="ExT1" style="width:80%"> <b>Affinity map: antibody affinity (on-rate of the antiboy) or antibody pressure estimated from the simulation is superimposed on the spike structure. </b> 
+					 <figcaption class="ExT1" style="width:80%"> <b>Affinity map: antibody affinity/pressure (simulation) </b> 
 						<!-- (Right) The antibody affinity (on-rate of Ab first arm binding) to the surface residues. The affinity estimated from the simulation is superimposed on the HA structure. Top view (left), side view (right). The affinity to cyan sites is high, intermediate to white sites, low for purple sites, and was the average over multiple simulations.  -->
 					</figcaption>
 				</figure>
@@ -70,15 +70,15 @@
 		</div>
 
 
-		<div class="ExT1"> For circulating viruses to propagate, they have to evade neutralization and recognition by antibodies and do so, by accumulating mutations at their spikes. We checked for the sarbecovirus subgenus spike (SARS family) whether the mutational pattern matches the antibody pressure/affinity estimated by the model.</div>
+		<div class="ExT1"> For circulating viruses to propagate, they have to evade recognition by antibodies. They do so by accumulating spikes mutations. We computed mutational pattern for the sarbecovirus subgenus spike (SARS family) spike </div>
 		
 
 	<div class="row">
-		<div class="col-lg-5">
+		<div class="col-lg-6">
 			<figure class="ExT1">
 				<img src="SarbecovirusSubgenus_mut.png" alt="Trulli" style="width:80%">
-				 <figcaption class="ExT1" style="width:80%"> <b>Mutability map: entropy of the sarbecovirus subgenus residues superimposed on the spike structure. </b> 
-					<!-- (Right) The antibody affinity (on-rate of Ab first arm binding) to the surface residues. The affinity estimated from the simulation is superimposed on the HA structure. Top view (left), side view (right). The affinity to cyan sites is high, intermediate to white sites, low for purple sites, and was the average over multiple simulations.  -->
+				 <figcaption class="ExT1" style="width:80%"> <b>Mutability map: entropy of the sarbecovirus subgenus spike residues. Low entropy=conserve, high entropy=mutable </b> 
+					<!-- (Right) The antibody affinity (on-rate of Ab first arm binding) to the surface residues. The affinity estimated from the simulation is superimposed on the HA structure. Top view (left), side view (right). The affinity to cyan sites is high, intermediate to white sites, low for purple sites, and was the average over multiple simulations. We checked for the sarbecovirus subgenus spike (SARS family) whether the mutational pattern matches the antibody pressure/affinity estimated by the model. -->
 				</figcaption>
 			</figure>
 
@@ -100,24 +100,22 @@
 
 
 
-	<div class="ExT1"> To compare the affinity map and the mutability map we applied spectral clustering. We aggregate residues to epitope clusters. The scatter plot shows how well the model does in explaining the mutability of the surface residue. </div>
+	<div class="ExT1"> To compare the affinity map and the mutability map we applied spectral clustering. We aggregate closeby residues to epitope clusters. How well the model does in explaining the mutability of the surface residue? </div>
 
 
-	<div class="ExT1" style="width:30%" id='scatFam'> </div>
+	<div class="ExT1" style="width:50%" id='scatFam'> </div>
 	<div class="ExT2" id='corFam'> </div>
 	
-	<div class="ExT1"> The correlation between the affinity map and the mutability map is 0.69 for the sarbecovirus subgenus spike. To create the affinity map and estimate antibody pressure on a residue, we use only the surface geometry of the virus and the spike. Hence, the virus surface geometry gives rise to antibody pressure, as estimated by the model, that can explain 48% of the variability in the mutability map of the sarbecovirus subgenus spike. </div>
+	<div class="ExT1"> The correlation between the affinity map and the mutability map is 0.69 for the sarbecovirus subgenus spike. To create the affinity map we use only the surface geometry of the virus and the spike. Hence, the virus surface geometry gives rise to antibody pressure, as estimated by the model, that can explain 48% of the variability in the mutability map of the sarbecovirus subgenus spike. </div>
 
 	<hr>
 	
 	<br>	
 
-	<center><h1> Does the mutational pattern of SARS-CoV-2 follow the simulatons?</h1></center>
-	
+	<center><h1> Does SARS-CoV-2 spike mutability follow the viral surface geometry and antibody pressure?</h1></center>
 
-	<div class="ExT1"> We compared the mutability of the SARS-CoV-2 spike to the affinity map. Because over time the mutational patterns of the spike evolution can change, we explore its mutability map at different time periods. Choose below the initial time-point and the end time-point over which you want to compare the mutability map to the model. A high correlation value means that the mutability pattern of the spike follows antibody pressure as estimated by the model and could be indicative of escape from antibody mutations, amongst other factors (see manuscript).  </div>
+	<div class="ExT1"> We compared the mutability of the SARS-CoV-2 spike to the affinity map above. Because over time the mutational patterns of the spike evolution can change, we explore its mutability map at different time periods (data from <a href="https://www.gisaid.org/">gisaid</a>). Choose below the initial time-point and the end time-point over which you want to compare the mutability map to the model. A high correlation value means that the mutability pattern of the spike follows antibody pressure as estimated by the model and could be indicative of escape from antibody mutations, amongst other factors (see manuscript).  </div>
 
-	
 		<div class="row">
 			<div class="col-md-1"></div><div class="col-md-1"></div>
 			<div class="col-md-1">
@@ -145,7 +143,9 @@
 	
 	<div class="ExT2" id='cor'> </div>
 
-	
+    
+    <div class="ExT1"> High correlation means that the relative mutability of spike resiudes follows the their relative accessability to antibodies and the geometry of the viral surface, as estimated by the model. It could be indicative of escape from antibody mutations, amongst other factors (see manuscript).  </div>
+
 
 	<script>
 		var datePickerElement = $("#datepicker").datepicker({
@@ -175,18 +175,6 @@
 					y: yValues,
 					type: 'bar'
 				};
-				var layout = {
-                title: 'Sequence entropy',
-                xaxis: {
-                  title: 'S residue sequence index',
-                  showgrid: false,
-                  zeroline: false
-                },
-                yaxis: {
-                  title: 'Residue entropy (mutability)',
-                  showline: true
-                }
-              	};
 
                 layout1 = SetLayoutHist('Sequence entropy','Spike residue sequence index','Residue entropy (mutability)')
 
@@ -203,14 +191,14 @@
 					marker: {
 						color: 'rgb(0, 0, 0)' // black
 					},
-					name: 'cluster'
+					name: 'Cluster'
 				};
 				var RBD = {
 					x: [],
 					y: [],
 					mode: 'markers',
 					type: 'scatter',
-					name: 'RBD',
+					name: 'Receptor binding domain',
 					marker: {
 						color: 'rgb(51, 204, 51)' // green
 					}
@@ -220,7 +208,7 @@
 					y: [],
 					mode: 'markers',
 					type: 'scatter',
-					name: 'RBM',
+					name: 'Receptor binding motif',
 					marker: {
 						color: 'rgb(255, 0, 0)'	// red
 					}
@@ -243,31 +231,9 @@
 				}
 				var dataScat = [cluster, RBD, RBM];
               				
-              	var layout = {
-                title: 'Antibody pressure vs. mutability for SARS-CoV-2 spike (S protein)',
-                xaxis: {
-                  //title: 'Antibody pressure on residues from computational model',
-                  title: {
-                    text: 'x Axis',
-                    font: {
-                    family: 'SFMono-Regular, monospace',
-                    size: 21,
-                    }
-                  },
-                  showline: true, 
-                  zeroline: false
-                },
-                yaxis: {
-                  title: 'Residues mutability estimated from sequences',
-                  showline: true,
-				  type: 'log',
-                }
-              	};
 				//layout = dict(updatemenus=updatemenus, title='Linear scale')
                 layout1 = SetLayoutScat('Antibody pressure vs. mutability for SARS-CoV-2 spike (S protein)','Antibody pressure on residues','Residues mutability')
-
-				//Fig1 = Plotly.newPlot('scat', dataScat,layout);
-				//T = '${targetScat}';
+				
 				Fig1 = Plotly.newPlot(targetScat, dataScat,layout1);
 				//Plotly.newPlot('scat', dataScat);
 				
