@@ -187,7 +187,10 @@
                   showline: true
                 }
               	};
-				Plotly.newPlot(targetHist, [dataBar],layout);
+
+                layout1 = SetLayoutHist('Sequence entropy','Spike residue sequence index','Residue entropy (mutability)')
+
+				Plotly.newPlot(targetHist, [dataBar],layout1);
 			}
 		}
 		function scatter(data,targetScat) {
@@ -243,8 +246,15 @@
               	var layout = {
                 title: 'Antibody pressure vs. mutability for SARS-CoV-2 spike (S protein)',
                 xaxis: {
-                  title: 'Antibody pressure on residues from computational model',
-                  showgrid: false,
+                  //title: 'Antibody pressure on residues from computational model',
+                  title: {
+                    text: 'x Axis',
+                    font: {
+                    family: 'SFMono-Regular, monospace',
+                    size: 21,
+                    }
+                  },
+                  showline: true, 
                   zeroline: false
                 },
                 yaxis: {
@@ -254,14 +264,125 @@
                 }
               	};
 				//layout = dict(updatemenus=updatemenus, title='Linear scale')
+                layout1 = SetLayoutScat('Antibody pressure vs. mutability for SARS-CoV-2 spike (S protein)','Antibody pressure on residues','Residues mutability')
 
 				//Fig1 = Plotly.newPlot('scat', dataScat,layout);
 				//T = '${targetScat}';
-				Fig1 = Plotly.newPlot(targetScat, dataScat,layout);
+				Fig1 = Plotly.newPlot(targetScat, dataScat,layout1);
 				//Plotly.newPlot('scat', dataScat);
 				
 			}
 		}
+        function SetLayoutScat(TitleStr,Xstr,Ystr) {
+
+            var layout = {
+                title: {
+                    text: TitleStr,
+                    font: {
+                    family: 'SFMono-Regular, monospace',
+                    size: 15,
+                    }
+                  },
+                xaxis: {
+
+                  title: {
+                    text: Xstr,
+                    font: {
+                    family: 'SFMono-Regular, monospace',
+                    size: 17,
+                    }
+                  },
+                  showline: true, 
+                  zeroline: false
+                },
+                yaxis: {
+                  title: {
+                    text: Ystr,
+                    font: {
+                    family: 'SFMono-Regular, monospace',
+                    size: 17,
+                    }
+                  },
+                  showline: true, 
+                  type: 'log',
+                },
+                };
+                  return layout
+
+
+        }
+        function SetLayoutScat(TitleStr,Xstr,Ystr) {
+
+            var layout = {
+                title: {
+                    text: TitleStr,
+                    font: {
+                    family: 'SFMono-Regular, monospace',
+                    size: 15,
+                    }
+                  },
+                xaxis: {
+
+                  title: {
+                    text: Xstr,
+                    font: {
+                    family: 'SFMono-Regular, monospace',
+                    size: 17,
+                    }
+                  },
+                  showline: true, 
+                  zeroline: false
+                },
+                yaxis: {
+                  title: {
+                    text: Ystr,
+                    font: {
+                    family: 'SFMono-Regular, monospace',
+                    size: 17,
+                    }
+                  },
+                  showline: true, 
+                  type: 'log',
+                },
+                };
+                  return layout
+
+
+        }
+        function SetLayoutHist(TitleStr,Xstr,Ystr) {
+        var layout = {
+            title: {
+                text: TitleStr,
+                font: {
+                family: 'SFMono-Regular, monospace',
+                size: 15,
+                }
+            },
+            xaxis: {
+
+            title: {
+                text: Xstr,
+                font: {
+                family: 'SFMono-Regular, monospace',
+                size: 17,
+                }
+            },
+            showline: true, 
+            zeroline: false
+            },
+            yaxis: {
+            title: {
+                text: Ystr,
+                font: {
+                family: 'SFMono-Regular, monospace',
+                size: 17,
+                }
+            },
+            showline: true, 
+            },
+            };
+            return layout
+        }        
 		function setCorrelationLabel(data) {
 			if (data) {
 				$('#cor').text(`Correlation coefficient: ${data}`);
@@ -291,45 +412,17 @@
 
 				var Endmonth = dateStrEnd.split('-')[0];
 				var Endyear = dateStrEnd.split('-')[1].slice(-2);
-				//var isJanuary = Endmonth == '01' ? true : false;
 				
 				var isDecember = Endmonth == '12' ? true : false;
 				
-				//var is2019 = Endyear == '2019' ? true : false;
-
-
-				//var Endmonth1 = isDecember ? Endmonth : Endmonth + 1;
-				//var prevMonth = isJanuary ? '12' : month - 1;
 				Endyear = '20';
-				//var NextMonth = isJanuary ? '12' : Endmonth + 1;
-				//var NextMonth = Endmonth;
-				//var NextMonth = isJanuary ? '12' : Endmonth - 1;
-				//var NextMonth = isJanuary ? '12' : Endmonth - 1;
-				//if (NextMonth.toString().length == 1) { NextMonth = `0${NextMonth}` }
+								
+				var NextMonth = isDecember ? '01' : String(Number(Endmonth) + 1);
+				
+				if (NextMonth.toString().length == 1) { NextMonth = `0${NextMonth}` }
 
-				//var NextMonth = isJanuary ? '12' : Endmonth;
-				//Var NextMonthNum = Number(NextMonth);
-
-				//var a = (NextMonth)+1;
-				//var b = (a);
-				//NextMonth = b;
-
-				//var a = Number(NextMonth)+1;
-				//var b = String(a);
-				//NextMonth = b;
-
-				//if (NextMonth.toString().length == 1) { NextMonth = `0${NextMonth}` }
-				//Endmonth = Endmonth + 1;
-				//if (Endmonth.toString().length == 1) { Endmonth = `0${Endmonth}` }
-
-				//Endyear = is2019 ? '2020' : Endmonth + 1;
-
-				//var prevMonth = isJanuary ? '12' : month - 1;
-				//if (prevMonth.toString().length == 1) { prevMonth = `0${prevMonth}` }
-				//var prevYear = isJanuary ? year - 1 : year;
-				//return `D${prevYear}${prevMonth}01${year}${month}01`;
 				//return `D${Styear}${Stmonth}01${Endyear}${Endmonth}01`;
-				return `D${Styear}${Stmonth}01${Endyear}${Endmonth}01`;
+				return `D${Styear}${Stmonth}01${Endyear}${NextMonth}01`;
 			}
 		}
 		function paintWithRefId(refId) {
@@ -362,18 +455,15 @@
 
 		// on page load
 
-// Load family entropy and scatter
-
-		datePickerElement.val('01-2002'); // show Dec 2019 by default
+        // load sarbecovirus subgenus family spike entropy and scatter
+		datePickerElement.val('01-2002'); // 
 		datePickerElementEnd.val('01-2019');
-		//D020101190101
-		//var refSARSFam = getRefIdStartEnd(datePickerElement.val(),datePickerElementEnd.val());
 		var refSARSFam = 'D020101190101';
 		
 		 paintFamWithRefId(refSARSFam);
 
-		datePickerElement.val('04-2020'); // show Oct 2020 by default
-		datePickerElementEnd.val('07-2020'); // 
+		datePickerElement.val('07-2020'); // show Oct 2020 by default
+		datePickerElementEnd.val('09-2020'); // 
 		//var refId = getRefId(datePickerElement.val());
 		//var refIdStart = getRefId(datePickerElement.val());
 		var refIdEnd = getRefIdStartEnd(datePickerElement.val(),datePickerElementEnd.val());
