@@ -1,0 +1,33 @@
+#!/bin/bash 
+#PBS -M amitai
+#PBS -q q16p192h@Raptor 
+#PBS -l nodes=1:ppn=1 
+#PBS -mea 
+#PBS -r n 
+#PBS -V 
+
+STRIPSTRING='.lc2'
+N=${PBS_JOBID%%$STRIPSTRING}
+
+"$PBS_JOBID"
+
+"$PBS_O_WORKDIR"
+
+# change to directory where job was submitted from,
+# or to the current directory
+cd ${PBS_O_WORKDIR:-$PWD}
+
+OUTPUTDIR=/full/path/to/output/dir
+# create output directory if it doesn't exist
+if [ ! -e "$OUTPUTDIR" ]; then
+    mkdir -p "$OUTPUTDIR"
+fi
+
+date
+
+
+
+echo Time is `date`
+echo Directory is `pwd`
+cd $PBS_O_WORKDIR 
+/mit/software/lammps/lammps-16Mar18/src/lmp_mpi -var idum ${NUMBERARG} -var epitopenum ${EPITOPEID} -var Cond ${COND} -var SpikeN ${SN} -in SpikeSimAbBall_nm_epitope2.in
