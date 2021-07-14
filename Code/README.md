@@ -6,7 +6,10 @@ The following files were used to create Lammps simulations that compute the mean
 “Virus_Flu_Spikes${ SpikeN}_Cond${Cond}”: Structure file and input to Lammps. Contains the coordinates of the beads in the system. This is the virus model presenting “SpikeN” HA molecules on its surface. Each of the 6 conditions (“Cond”) corresponds to a different initial configuration/position of the antibody molecule.
 To submit the simulations use the script “submit_multiple_jobs.sh”. This script is designed to submit multiple simulations with for different conditions.
 
-“SpikeNum”: the number of spikes (HA molecules) on the surface of the virus.
+“Virus_Corona_Spikes${SpikeN}_Cond${Cond}”: Structure file and input to Lammps. Contains the coordinates of the beads in the system. This is the virus model presenting “SpikeN” S proteins on its surface. Each of the 4 conditions (“Cond”) corresponds to a different initial configuration/position of the antibody molecule.
+To submit the simulations use the script “submit_multiple_jobs.sh”. This script is designed to submit multiple simulations with for different conditions.
+
+“SpikeNum”: the number of spikes (HA molecules or S proteins) on the surface of the virus.
 
 “cond” initial position of the antibody.
 
@@ -14,9 +17,9 @@ To submit the simulations use the script “submit_multiple_jobs.sh”. This scr
 
 “epitope”: the target residue (epitope) on the surface of HA. There is a total of 228 epitopes.
 
-“lammps_flu.pbs”: setup file for the simulation submission to the cluster.
+“lammps_flu.pbs”: setup file for the flu virus simulation submission to a slurm cluster.
 
-“SpikeSimAbBall_nm_epitope2.in”: setup file for the Lammps simulation. It contains all the simulation’s variables.
+“FluSim_epitope.in”, “CoronaSim_epitope.in”: setup file for the Lammps flu and corona virus simulations. They contains all the simulation’s variables.
 
 The simulation outputs a file “SpikeSim_idum_${idum}_virushaSpikes${SpikeN}_Bond_Ep_${epitopenum}_Cond${Cond}”
 When the variables here correspond to the input variables. This is a text file detailing whether or not the antibody molecule arms (Fab) touch their respective epitope. From this file I extract the on-rate for encounter (inverse of the mean first passage time).
