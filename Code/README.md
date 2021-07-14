@@ -7,7 +7,6 @@ The following files were used to create Lammps simulations that compute the mean
 To submit the simulations use the script “submit_multiple_jobs.sh”. This script is designed to submit multiple simulations with for different conditions.
 
 “Virus_Corona_Spikes${SpikeN}_Cond${Cond}”: Structure file and input to Lammps. Contains the coordinates of the beads in the system. This is the virus model presenting “SpikeN” S proteins on its surface. Each of the 4 conditions (“Cond”) corresponds to a different initial configuration/position of the antibody molecule.
-To submit the simulations use the script “submit_multiple_jobs.sh”. This script is designed to submit multiple simulations with for different conditions.
 
 "HA_Trimer_Cond${Cond}”: structure file for the HA trimer
 
