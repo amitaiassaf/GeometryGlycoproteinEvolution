@@ -30,4 +30,4 @@ date
 echo Time is `date`
 echo Directory is `pwd`
 cd $PBS_O_WORKDIR 
-/mit/software/lammps/lammps-16Mar18/src/lmp_mpi -var idum ${NUMBERARG} -var epitopenum ${EPITOPEID} -var Cond ${COND} -var SpikeN ${SN} -in SpikeSimAbBall_nm_epitope2.in
+lmp_mpi -var idum ${NUMBERARG} -var epitopenum ${EPITOPEID} -var Cond ${COND} -var SpikeN ${SN} -in SpikeSimAbBall_nm_epitope2.in
