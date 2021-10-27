@@ -12,7 +12,7 @@ To submit the simulations use the script “submit_multiple_jobs.sh”. This scr
 
 "Corona_Trimer_Cond${Cond}”: structure file for the S protein trimer
 
-“SpikeNum”: the number of spikes (HA molecules or S proteins) on the surface of the virus.
+“SpikeN”: the number of spikes (HA molecules or S proteins) on the surface of the virus.
 
 “cond” initial position of the antibody.
 
